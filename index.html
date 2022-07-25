@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>cdn Vue</title>
+</head>
+<body>
+
+	<div class="wrapper" id="app">
+		<div class="container">
+			<h1> {{title}} </h1>
+
+			<input
+			 class="inp"
+			 type="text"
+			  v-bind:placeholder="myPlaceholder" 
+			  v-bind:value="inputValue"
+			  v-on:input="inpudChange"
+			  @keypress.enter="addNotes"
+			  >
+				
+			<button class="btn" @click="addNotes" >Добавить</button>
+
+		</div>
+
+		<ul class="list" v-if="notes.length !==0" >
+			<li class="list__item" v-for="(not, idx) in notes"> {{not}} <button 
+				@click="removeNotes(idx)"
+				
+				class="btn remove-notes">Удалить</button> 
+
+				</li>
+
+				
+
+			
+		</ul>
+		<h3 v-else class="visoute-notes">Заметок пока нет</h3>
+	</div>
+
+
+
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="/app.js"></script>
+</body>
+</html>
